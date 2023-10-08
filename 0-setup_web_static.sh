@@ -33,7 +33,7 @@ nginx_config_content="location /hbnb_static {
 
 # Create a temporary file with the new configuration
 temp_file=$(mktemp)
-awk -v content="$nginx_config_content" '/server_name localhost;/ {print; print content; next} 1' /etc/nginx/sites-available/default > "$temp_file"
+awk -v content="$nginx_config_content" '!/^#/ && /server_name localhost;/ {print; print content; next} 1' /etc/nginx/sites-available/default > "$temp_file"
 
 # Overwrite the original configuration file
 mv "$temp_file" /etc/nginx/sites-available/default
