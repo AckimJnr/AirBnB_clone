@@ -23,7 +23,7 @@ echo "<html>
 ln -sf /data/web_static/releases/test /data/web_static/current
 
 # Give ownership to root user and group
-chown -R root:root /data/
+chown -R ubuntu:ubuntu /data/
 
 # Nginx configuration content with proper formatting
 nginx_config_content="location /hbnb_static {
